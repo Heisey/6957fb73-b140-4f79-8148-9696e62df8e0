@@ -10,6 +10,17 @@ export const App = styled.div`
   display: flex;
 
   .content {
-    margin-left: 10px;
+    display: flex;
+  }
+
+  .list {
+    border-right: 1px solid ${props => props.theme.border.color};
+    
+  }
+
+  .header {
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
   }
 `
