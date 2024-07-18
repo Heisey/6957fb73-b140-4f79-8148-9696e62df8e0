@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 export const App = styled.div`
   background-color: ${props => props.theme.background.primaryColor};
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 
   color: white;
 
@@ -15,7 +16,9 @@ export const App = styled.div`
 
   .list {
     border-right: 1px solid ${props => props.theme.border.color};
-    
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
   }
 
   .header {

@@ -2,6 +2,7 @@
 import * as Query from '@tanstack/react-query'
 
 import * as Api from 'api'
+import * as Core from 'core'
 
 export const useGetAll = (args: boolean) => Query.useQuery({
   queryKey: ['phone_list'],
@@ -20,3 +21,9 @@ export const useGetArchived = (args: boolean) => Query.useQuery({
   queryFn: Api.phoneData.getArchived,
   enabled: args
 })
+
+export const useUpdateCall = () => {
+  return Query.useMutation({
+    mutationFn: Api.phoneData.updateCall
+  })
+}

@@ -17,8 +17,8 @@ export const dark: I.Theme = {
       primary: {
         fg: '#2AC420',
         bg: '#343b3a',
-        hoverBg: 'red',
-        hoverFg: 'blue'
+        hoverBg: '#2AC420',
+        hoverFg: '#343b3a'
       }
     }
   },
