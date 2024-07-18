@@ -1,6 +1,8 @@
 
 export const HOME = '/'
 
-export const Archived = '/archived'
+export const ARCHIVED = '/archived'
+
+export const ARCHIVED_DETAILS = '/archived/:id'
 
 export const CALL_DETAILS = '/details/:id'

@@ -2,6 +2,7 @@
 import * as React from 'react'
 import * as Router from 'react-router-dom'
 
+import * as App from 'App'
 import * as Core from 'core'
 import * as Icons from 'assets/icons'
 
@@ -12,10 +13,15 @@ export interface PhoneListItemProps {
 }
 
 const PhoneListItem: React.FC<PhoneListItemProps> = (props) => {
-  
+  const appCtx = App.useAppCtx()
+
+  const path = () => {
+    if (appCtx.showArchived) return Core.Keys.paths.ARCHIVED_DETAILS.replace(':id', props.data.id)
+    return Core.Keys.paths.CALL_DETAILS.replace(':id', props.data.id)
+  }
   return (
     <Styles.PhoneListItem $incoming={props.data.direction === Core.Keys.callDirection.INBOUND}>
-      <Router.Link to={`/details/${props.data.id}`} className='container'>
+      <Router.Link to={path()} className='container'>
         <div className='icons'>
           <Icons.Solid.Phone size='35px' fill='white' />
           <Icons.Solid.Arrow className='arrow' size='15px' fill='white' />

@@ -2,6 +2,7 @@
 import * as React from 'react'
 import * as Router from 'react-router-dom'
 
+import * as Core from 'core'
 import Header from 'components/custom/Header'
 import PhoneList from 'components/custom/PhoneList'
 import Sidebar from 'components/custom/Sidebar'
@@ -25,7 +26,8 @@ const App: React.FC<AppProps> = (props) => {
           <PhoneList />
         </div>
         <Router.Routes>
-          <Router.Route path='/details/:id' Component={CallDetails} />
+          <Router.Route path={Core.Keys.paths.CALL_DETAILS} Component={CallDetails} />
+          <Router.Route path={Core.Keys.paths.ARCHIVED_DETAILS} Component={CallDetails} />
         </Router.Routes>
       </div>
     </Styles.App>

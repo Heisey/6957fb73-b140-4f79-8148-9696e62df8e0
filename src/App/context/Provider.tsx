@@ -1,10 +1,11 @@
 
 import * as React from 'react'
 
-import * as Core from 'core'
 import * as Hooks from 'hooks'
 
 import * as CtxApp from './'
+
+const archivedPathRegex = new RegExp('^\\/archived(?:\\/[^/]+)?$')
 
 const Provider: React.FC<React.PropsWithChildren> = (props) => {
 
@@ -12,7 +13,7 @@ const Provider: React.FC<React.PropsWithChildren> = (props) => {
   const [showArchived, showArchivedHandler] = React.useState(false)
 
   React.useEffect(() => {
-    if (location.pathname === Core.Keys.paths.Archived) showArchivedHandler(true)
+    if (archivedPathRegex.test(location.pathname)) showArchivedHandler(true)
     else showArchivedHandler(false)
   }, [location])
 
