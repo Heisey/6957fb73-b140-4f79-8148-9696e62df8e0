@@ -1,5 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom/client'
+import * as ReactRouter from 'react-router-dom'
 
 import App from 'App'
 import QueryProvider from 'components/providers/Query'
@@ -10,9 +11,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryProvider>
       <ThemeProvider>
-        <Utils.styles.Reset />
-        <Utils.styles.Global />
-        <App />
+        <ReactRouter.BrowserRouter>
+          <Utils.styles.Reset />
+          <Utils.styles.Global />
+          <App />
+        </ReactRouter.BrowserRouter>
       </ThemeProvider>
     </QueryProvider>
   </React.StrictMode>,

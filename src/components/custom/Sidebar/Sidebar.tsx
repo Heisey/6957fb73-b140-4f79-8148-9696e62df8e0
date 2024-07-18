@@ -12,13 +12,18 @@ export interface SidebarProps extends React.PropsWithChildren {
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
 
-  const theme = Hooks.common.useTheme()
+  const location = Hooks.common.useLocation()
 
   return (
     <Styles.Sidebar>
       <div className='links'>
-        <Icons.Solid.Phone className='link' size='35px' />
-        <Icons.Solid.Archive className='link' size='35px' />
+        <Styles.Link to='/' active={location.pathname === '/'} className='link'><Icons.Solid.Phone className='link' size='35px' /></Styles.Link>
+
+        <Styles.Link to='/details' active={location.pathname === '/details'} className='link'><Icons.Solid.Archive className='link' size='35px' /></Styles.Link>
+      </div>
+
+      <div>
+        
       </div>
     </Styles.Sidebar>
   )
