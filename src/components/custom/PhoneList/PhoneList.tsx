@@ -1,6 +1,7 @@
 
 import * as React from 'react'
 
+import * as App from 'App'
 import * as Hooks from 'hooks'
 import PhoneListItem from 'components/custom/PhoneListItem'
 
@@ -11,15 +12,17 @@ export interface PhoneListProps extends React.PropsWithChildren {
 }
 
 const PhoneList: React.FC<PhoneListProps> = (props) => {
+  const appCtx = App.useAppCtx()
+  const callHistory = Hooks.server.phone.useGetAll(!appCtx.showArchived)
+  const archiveHistory = Hooks.server.phone.useGetArchived(appCtx.showArchived)
 
-  const callHistory = Hooks.server.phone.useGetAll()
-
-  if (callHistory.isLoading) return <div>loading</div>
+  if (callHistory.isLoading || archiveHistory.isLoading) return <div>loading</div>
   
   return (
     <Styles.PhoneList>
       <ul>
-        {callHistory.data?.map(dataSet => <PhoneListItem data={dataSet} />)}
+        {!appCtx.showArchived && callHistory.data?.map(dataSet => <PhoneListItem data={dataSet} />)}
+        {appCtx.showArchived && archiveHistory.data?.map(dataSet => <PhoneListItem data={dataSet} />)}
       </ul>
     </Styles.PhoneList>
   )

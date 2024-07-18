@@ -1,2 +1,4 @@
 
-export { default } from './App'
+export { default } from './Root'
+
+export { useContext as useAppCtx } from './context'
