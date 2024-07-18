@@ -25,7 +25,7 @@ const App: React.FC<AppProps> = (props) => {
           <PhoneList />
         </div>
         <Router.Routes>
-          <Router.Route path='/details' Component={CallDetails} />
+          <Router.Route path='/details/:id' Component={CallDetails} />
         </Router.Routes>
       </div>
     </Styles.App>

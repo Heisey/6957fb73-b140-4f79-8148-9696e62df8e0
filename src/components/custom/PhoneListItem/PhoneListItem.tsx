@@ -15,7 +15,7 @@ const PhoneListItem: React.FC<PhoneListItemProps> = (props) => {
   
   return (
     <Styles.PhoneListItem incoming={props.data.direction === Core.Keys.callDirection.INBOUND}>
-      <Router.Link to='/details' className='container'>
+      <Router.Link to={`/details/${props.data.id}`} className='container'>
         <div className='icons'>
           <Icons.Solid.Phone size='35px' fill='white' />
           <Icons.Solid.Arrow className='arrow' size='15px' fill='white' />
