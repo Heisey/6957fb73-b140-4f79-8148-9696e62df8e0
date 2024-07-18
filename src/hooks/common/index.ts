@@ -8,3 +8,4 @@ export const useTheme = Styled.useTheme
 
 export const useLocation = Router.useLocation
 export const useParams = Router.useParams
+export const useNav = Router.useNavigate

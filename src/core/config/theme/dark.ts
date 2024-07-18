@@ -1,5 +1,6 @@
 
 import * as I from '../../Interfaces'
+import * as Keys from '../../keys'
 
 export const dark: I.Theme = {
   name: 'dark',
@@ -14,10 +15,16 @@ export const dark: I.Theme = {
   button: {
     padding: '10px',
     variants: {
-      primary: {
+      [Keys.buttonThemes.PRIMARY]: {
         fg: '#2AC420',
         bg: '#343b3a',
         hoverBg: '#2AC420',
+        hoverFg: '#343b3a'
+      },
+      [Keys.buttonThemes.DANGER]: {
+        fg: '#b0170c',
+        bg: '#343b3a',
+        hoverBg: '#b0170c',
         hoverFg: '#343b3a'
       }
     }

@@ -21,6 +21,10 @@ export const CallDetails = styled(Page)`
     font-size: 40px;
     text-transform: capitalize;
     border-bottom: 1px solid ${props => props.theme.border.color};
+
+    & > :not(:last-child) {
+      margin-right: 1rem;
+    }
   }
 
   .sub_header {
