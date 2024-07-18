@@ -4,17 +4,34 @@ import * as Styled from 'styled-components'
 
 import * as Core from 'core'
 
-export interface ThemeProps extends React.PropsWithChildren {
+export interface ThemeProps extends React.PropsWithChildren {}
 
+interface ThemeContextProps {
+  current: Core.I.Theme
+  toggleTheme: () => void
 }
 
-const Theme: React.FC<ThemeProps> = (props) => {
+const ThemeContext = React.createContext<ThemeContextProps | undefined>(undefined)
+
+const ThemeProvider: React.FC<ThemeProps> = (props) => {
+  const [theme, setTheme] = React.useState(Core.config.theme.dark)
+
+  const toggleTheme = () => setTheme(prevTheme => (prevTheme === Core.config.theme.dark ? Core.config.theme.light : Core.config.theme.dark));
 
   return (
-    <Styled.ThemeProvider theme={Core.config.theme.dark}>
-      {props.children}
-    </Styled.ThemeProvider>
+    <ThemeContext.Provider value={{ current: theme, toggleTheme }}>
+      <Styled.ThemeProvider theme={theme}>
+        {props.children}
+      </Styled.ThemeProvider>
+    </ThemeContext.Provider>
   )
 }
+export const useTheme = () => {
+  const context = React.useContext(ThemeContext)
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider')
+  }
+  return context
+}
 
-export default Theme
+export default ThemeProvider

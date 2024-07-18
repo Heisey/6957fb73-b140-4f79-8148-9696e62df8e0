@@ -1,10 +1,10 @@
 
 import * as Router from 'react-router-dom'
-import * as Styled from 'styled-components'
+import * as ThemeProvider from 'components/providers/Theme'
 
 export * from './useToggle'
 
-export const useTheme = Styled.useTheme
+export const useTheme = ThemeProvider.useTheme
 
 export const useLocation = Router.useLocation
 export const useParams = Router.useParams
