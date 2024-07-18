@@ -12,6 +12,7 @@ export const App = styled.div`
 
   .content {
     display: flex;
+    width: 100%;
   }
 
   .list {
@@ -21,7 +22,7 @@ export const App = styled.div`
     padding-bottom: 30px;
   }
 
-  .header {
+  .app_header {
     margin-top: 30px;
     margin-left: 30px;
     margin-bottom: 30px;

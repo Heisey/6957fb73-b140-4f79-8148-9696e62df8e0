@@ -6,14 +6,18 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          ['babel-plugin-styled-components', {
+            displayName: true,
+            fileName: false
+          }]
+        ]
+      }
+    }),
     tsconfigPaths()
   ],
-  // resolve: {
-  //   alias: {
-  //     "*": "/src/*"
-  //   }
-  // },
   server: {
     port: 3000
   }

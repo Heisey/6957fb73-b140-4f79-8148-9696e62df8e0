@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   return (
     <Styles.Button 
       { ...props }
-      buttonTheme={props.theme || 'primary'}
+      $buttonTheme={props.theme || 'primary'}
     >
       {props.children}
     </Styles.Button>

@@ -18,9 +18,9 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
   return (
     <Styles.Sidebar>
       <div className='links'>
-        <Styles.Link to={Core.Keys.paths.HOME} active={location.pathname !== Core.Keys.paths.Archived} className='link'><Icons.Solid.Phone className='link' size='35px' /></Styles.Link>
+        <Styles.Link to={Core.Keys.paths.HOME} $active={location.pathname !== Core.Keys.paths.Archived}><Icons.Solid.Phone className='link' size='35px' /></Styles.Link>
 
-        <Styles.Link to={Core.Keys.paths.Archived} active={location.pathname === Core.Keys.paths.Archived} className='link'><Icons.Solid.Archive className='link' size='35px' /></Styles.Link>
+        <Styles.Link to={Core.Keys.paths.Archived} $active={location.pathname === Core.Keys.paths.Archived}><Icons.Solid.Archive className='link' size='35px' /></Styles.Link>
       </div>
 
       <div>

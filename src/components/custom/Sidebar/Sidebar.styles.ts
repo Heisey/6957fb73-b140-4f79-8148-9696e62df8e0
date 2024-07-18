@@ -20,11 +20,13 @@ export const Sidebar = styled.div`
 `
 
 interface LinkProps {
-  active?: boolean
+  $active?: boolean
 }
 
-export const Link = styled(Router.Link)<LinkProps>`
-  fill: ${props => props.active ? props.theme.nav.activeTextColor : props.theme.nav.textColor};
+export const Link = styled(Router.Link).withConfig({
+  shouldForwardProp: (prop) => !['active'].includes(prop)
+})<LinkProps>`
+  fill: ${props => props.$active ? props.theme.nav.activeTextColor : props.theme.nav.textColor};
   transition: fill 0.3s ease-in;
-  cursor: ${props => props.active ? 'default' : 'pointer'}
+  cursor: ${props => props.$active ? 'default' : 'pointer'}
 `

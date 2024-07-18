@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 interface Props {
-  incoming: boolean
+  $incoming: boolean
 }
 
 export const PhoneListItem = styled.li<Props>`
@@ -56,6 +56,6 @@ export const PhoneListItem = styled.li<Props>`
     position: absolute;
     top: 4px;
     left: 8px;
-    transform: ${props => props.incoming ? `rotate(150deg)` : 'rotate(330deg)'};
+    transform: ${props => props.$incoming ? `rotate(150deg)` : 'rotate(330deg)'};
   }
 `

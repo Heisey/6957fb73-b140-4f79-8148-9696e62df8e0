@@ -1,6 +1,5 @@
 
 import * as React from 'react'
-import * as Query from '@tanstack/react-query'
 
 import * as App from 'App'
 import * as Core from 'core'
@@ -18,7 +17,6 @@ const AllFilter = 'ALL'
 type ListFilter = Core.I.CallDirection | typeof AllFilter
 
 const PhoneList: React.FC<PhoneListProps> = (props) => {
-  const client = Query.useQueryClient()
   const appCtx = App.useAppCtx()
   const callHistory = Hooks.server.phone.useGetAll(!appCtx.showArchived)
   const archiveHistory = Hooks.server.phone.useGetArchived(appCtx.showArchived)
@@ -28,14 +26,11 @@ const PhoneList: React.FC<PhoneListProps> = (props) => {
   const [showFiltered, showFilteredHandler] = React.useState<ListFilter>(AllFilter)
   const [loading, toggleLoading] = Hooks.common.useToggle(false)
 
-
   React.useEffect(() => {
     if (appCtx.showArchived) listDataHandler(archiveHistory.data)
     else if (!appCtx.showArchived) listDataHandler(callHistory.data)
   }, [callHistory.data, archiveHistory.data, appCtx.showArchived])
 
-  // if (callHistory.isLoading || archiveHistory.isLoading || loading) return <div>loading</div>
-  
   const showdata = () => {
     let data: Core.I.Call[] | undefined = []
     switch(showFiltered) {
@@ -69,16 +64,16 @@ const PhoneList: React.FC<PhoneListProps> = (props) => {
 
   const renderList = () => {
     if (callHistory.isLoading || archiveHistory.isLoading || loading) return <div>Loading</div>
-    return (showdata() || []).map(dataSet => <PhoneListItem data={dataSet} />)
+    return (showdata() || []).map(dataSet => <PhoneListItem key={dataSet.id} data={dataSet} />)
   }
 
   return (
     <Styles.PhoneList>
       <div className='buttons'>
         <div className='buttons__lists'>
-          <Styles.FilterButton active={showFiltered === AllFilter} onClick={() => showFilteredHandler(AllFilter)}>All</Styles.FilterButton>
-          <Styles.FilterButton active={showFiltered === Core.Keys.callDirection.INBOUND} onClick={() => showFilteredHandler(Core.Keys.callDirection.INBOUND)}>Incoming</Styles.FilterButton>
-          <Styles.FilterButton active={showFiltered === Core.Keys.callDirection.OUTBOUND} onClick={() => showFilteredHandler(Core.Keys.callDirection.OUTBOUND)}>Outgoing</Styles.FilterButton>
+          <Styles.FilterButton $active={showFiltered === AllFilter} onClick={() => showFilteredHandler(AllFilter)}>All</Styles.FilterButton>
+          <Styles.FilterButton $active={showFiltered === Core.Keys.callDirection.INBOUND} onClick={() => showFilteredHandler(Core.Keys.callDirection.INBOUND)}>Incoming</Styles.FilterButton>
+          <Styles.FilterButton $active={showFiltered === Core.Keys.callDirection.OUTBOUND} onClick={() => showFilteredHandler(Core.Keys.callDirection.OUTBOUND)}>Outgoing</Styles.FilterButton>
         </div>
         <Button onClick={onAllUpdate} className='buttons__archive'>{appCtx.showArchived ? 'UnArchive' : 'Archive'} All</Button>
       </div>

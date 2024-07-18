@@ -21,7 +21,7 @@ const App: React.FC<AppProps> = (props) => {
       <Sidebar />
       <div className='content'>
         <div className='list'>
-          <Header className='header' />
+          <Header className='app_header' />
           <PhoneList />
         </div>
         <Router.Routes>

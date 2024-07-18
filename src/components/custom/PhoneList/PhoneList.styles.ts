@@ -29,16 +29,16 @@ export const PhoneList = styled.div`
 `
 
 interface FilterButtonProps {
-  active: boolean
+  $active: boolean
 }
 
 const filterButtonBg = (args: FilterButtonProps, theme: Core.I.Theme) => {
-  if (args.active) return theme.button.variants.primary.hoverBg
+  if (args.$active) return theme.button.variants.primary.hoverBg
   return theme.button.variants.primary.bg
 }
 
 const filterButtonFg = (args: FilterButtonProps, theme: Core.I.Theme) => {
-  if (args.active) return theme.button.variants.primary.hoverFg
+  if (args.$active) return theme.button.variants.primary.hoverFg
   return theme.button.variants.primary.fg
 }
 
