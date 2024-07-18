@@ -3,11 +3,13 @@ import * as React from 'react'
 import * as Router from 'react-router-dom'
 
 import * as Core from 'core'
+import * as Hooks from 'hooks'
 import Header from 'components/custom/Header'
 import PhoneList from 'components/custom/PhoneList'
 import Sidebar from 'components/custom/Sidebar'
 
 import CallDetails from 'pages/CallDetails'
+import Settings from 'pages/Settings'
 
 import * as Styles from './App.styles'
 
@@ -16,18 +18,24 @@ export interface AppProps extends React.PropsWithChildren {
 }
 
 const App: React.FC<AppProps> = (props) => {
+  const location = Hooks.common.useLocation()
+
+  const renderList = () => (
+    <div className='list'>
+      <Header className='app_header' />
+      <PhoneList />
+    </div>
+  )
 
   return (
     <Styles.App>
       <Sidebar />
       <div className='content'>
-        <div className='list'>
-          <Header className='app_header' />
-          <PhoneList />
-        </div>
+        {location.pathname !== Core.Keys.paths.SETTINGS && renderList()}
         <Router.Routes>
           <Router.Route path={Core.Keys.paths.CALL_DETAILS} Component={CallDetails} />
           <Router.Route path={Core.Keys.paths.ARCHIVED_DETAILS} Component={CallDetails} />
+          <Router.Route path={Core.Keys.paths.SETTINGS} Component={Settings} />
         </Router.Routes>
       </div>
     </Styles.App>

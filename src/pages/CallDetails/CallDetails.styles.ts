@@ -27,8 +27,9 @@ export const CallDetails = styled(Page)`
     }
   }
 
+
   .sub_header {
-    height: 66px;
+    height: 60px;
     border-bottom: 1px solid ${props => props.theme.border.color};
     padding-left: 20px;
     display: flex;

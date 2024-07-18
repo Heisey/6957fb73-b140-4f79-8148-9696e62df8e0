@@ -7,13 +7,18 @@ export const Sidebar = styled.div`
   padding: 20px;
 
   border-right: 1px solid ${props => props.theme.border.color};
+  display: flex;
+  flex-direction: column;
 
   .links {
-    margin-top: 80px;
-    & > :not(:last-child) {
-      margin-bottom: 20px;
-    }
+    flex-grow: 1;
+    /* margin-top: 180px; */
   }
+
+  .margin_bottom {
+    margin-bottom: 20px;
+  }
+
   .link {
     display: block;
   }
