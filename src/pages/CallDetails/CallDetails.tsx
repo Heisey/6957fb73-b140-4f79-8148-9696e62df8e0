@@ -1,6 +1,7 @@
 
 import * as React from 'react'
 
+import * as Core from 'core'
 import * as Hooks from 'hooks'
 import * as Utils from 'utilities'
 
@@ -33,7 +34,7 @@ const CallDetails: React.FC<CallDetailsProps> = (props) => {
           <p>From: {call.data?.from}</p>
           <p>length: {call.data?.duration}</p>
         </div>
-        <Button>settings</Button>
+        <Button variant={Core.Keys.buttonVariants.GHOST}>settings</Button>
       </div>
     </Styles.CallDetails>
   )
