@@ -12,8 +12,6 @@ const PhoneList: React.FC<PhoneListProps> = (props) => {
   const callHistory = Hooks.server.phone.useGetAll()
 
   if (callHistory.isLoading) return <div>loading</div>
-
-  console.log('puppy res, ', callHistory.data)
   
   return (
     <div>

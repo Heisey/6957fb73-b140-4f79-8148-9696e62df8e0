@@ -2,9 +2,14 @@
 import styled from 'styled-components'
 
 export const App = styled.div`
-  background-color: ${props => props.theme.app.backgroundColor};
+  background-color: ${props => props.theme.background.primaryColor};
   min-height: 100vh;
-  padding: ${props => props.theme.app.padding};
 
   color: white;
+
+  display: flex;
+
+  .content {
+    margin-left: 10px;
+  }
 `

@@ -2,6 +2,7 @@
 import * as React from 'react'
 
 import Header from 'components/custom/Header'
+import Sidebar from 'components/custom/Sidebar'
 
 import PhoneList from 'pages/PhoneList'
 
@@ -15,8 +16,11 @@ const App: React.FC<AppProps> = (props) => {
 
   return (
     <Styles.App>
-      <Header />
-      <PhoneList />
+      <Sidebar />
+      <div className='content'>
+        <Header />
+        <PhoneList />
+      </div>
     </Styles.App>
   )
 }
