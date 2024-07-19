@@ -3,6 +3,7 @@ import * as Router from 'react-router-dom'
 import * as ThemeProvider from 'components/providers/Theme'
 
 export * from './useToggle'
+export * from './useWindowSize'
 
 export const useTheme = ThemeProvider.useTheme
 
