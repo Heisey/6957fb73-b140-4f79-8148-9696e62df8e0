@@ -44,6 +44,10 @@ export const CallDetails = styled(Page)`
 
   .content {
     padding: 20px;
+    
+    & > * {
+      color: ${props => props.theme.text.primaryColor}
+    }
   }
 
   .info {

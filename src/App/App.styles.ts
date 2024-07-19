@@ -6,7 +6,7 @@ export const App = styled.div`
   height: 100vh;
   overflow: hidden;
 
-  color: white;
+  color: ${props => props.theme.text.primaryColor};
 
   display: flex;
 

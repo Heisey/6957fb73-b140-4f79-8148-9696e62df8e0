@@ -15,6 +15,8 @@ export const PhoneListItem = styled.li<Props>`
     position: relative;
     transition: all 0.3s ease-in;
     z-index: 10;
+    color: ${props => props.theme.text.primaryColor};
+    text-decoration: none;
 
     &:hover {
       &:after {
@@ -37,10 +39,13 @@ export const PhoneListItem = styled.li<Props>`
 
   .to {
     display: flex;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
   }
 
   .text {
-    color: white;
+    color: ${props => props.theme.text.primaryColor};
     display: block;
     
     &:not(:last-child) {

@@ -1,5 +1,6 @@
 
 import * as I from '../../Interfaces'
+import * as Keys from '../../keys'
 
 export const light: I.Theme = {
   name: 'light',
@@ -7,18 +8,24 @@ export const light: I.Theme = {
     padding: '20px'
   },
   background: {
-    primaryColor: 'black',
-    secondaryColor: '#343b3a',
-    tertiaryColor: 'pink'
+    primaryColor: 'white',
+    secondaryColor: '#f5f5f5',
+    tertiaryColor: '#e0e0e0'
   },
   button: {
     padding: '10px',
     variants: {
-      primary: {
-        fg: '#2AC420',
-        bg: '#343b3a',
-        hoverBg: 'red',
-        hoverFg: 'blue'
+      [Keys.buttonThemes.PRIMARY]: {
+        fg: 'white',
+        bg: '#2AC420',
+        hoverBg: '#f5f5f5',
+        hoverFg: '#2AC420'
+      },
+      [Keys.buttonThemes.DANGER]: {
+        fg: '#b0170c',
+        bg: '#b0170c',
+        hoverBg: '#b0170c',
+        hoverFg: 'white'
       }
     }
   },
@@ -28,13 +35,13 @@ export const light: I.Theme = {
     radius: '10px',
   },
   text: {
-    primaryColor: 'white',
+    primaryColor: 'black',
     secondaryColor: '#2AC420',
-    disabledColor: 'yellow'
+    disabledColor: 'grey'
   },
   nav: {
-    backgroundColor: '#343b3a',
-    textColor: 'white',
+    backgroundColor: '#f5f5f5',
+    textColor: 'black',
     activeTextColor: '#2AC420'
   }
 }
