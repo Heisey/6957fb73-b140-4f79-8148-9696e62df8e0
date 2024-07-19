@@ -27,7 +27,6 @@ export const CallDetails = styled(Page)`
     }
   }
 
-
   .sub_header {
     height: 60px;
     border-bottom: 1px solid ${props => props.theme.border.color};
@@ -41,13 +40,18 @@ export const CallDetails = styled(Page)`
     }
   }
 
-
   .content {
     padding: 20px;
     
     & > * {
       color: ${props => props.theme.text.primaryColor}
     }
+  }
+
+  .back {
+    transform: rotate(180deg);
+    margin-right: 50px;
+    margin-top: -15px;
   }
 
   .info {

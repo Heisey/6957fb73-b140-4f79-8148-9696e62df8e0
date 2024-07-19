@@ -1,4 +1,6 @@
 
+export * as breakpoints from './breakpoints'
+
 export * as buttonThemes from './buttonThemes'
 
 export * as buttonVariants from './buttonVariants'

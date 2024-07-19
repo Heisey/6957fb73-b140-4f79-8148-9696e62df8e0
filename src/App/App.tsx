@@ -1,8 +1,11 @@
 
 import * as React from 'react'
 
+import * as Core from 'core'
 import * as Hooks from 'hooks'
+
 import Desktop from './layout/Desktop'
+import Tablet from './layout/Tablet'
 import * as Ctx from './context'
 import * as Styles from './App.styles'
 
@@ -16,8 +19,8 @@ const App: React.FC<AppProps> = (props) => {
 
   return (
     <Styles.App id='home' ref={appCtx.homeRef}>
-      {windowSize.width > 850 && <Desktop />}
-      {windowSize.width <= 850 && <div>puppy mobile</div>}
+      {windowSize.width > Core.Keys.breakpoints.TABLET && <Desktop />}
+      {windowSize.width <= Core.Keys.breakpoints.TABLET && <Tablet />}
     </Styles.App>
   )
 }

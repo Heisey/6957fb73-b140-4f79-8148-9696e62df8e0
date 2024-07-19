@@ -2,6 +2,7 @@
 import * as React from 'react'
 
 import * as App from 'App'
+import * as Icons from 'assets/icons'
 import * as Core from 'core'
 import * as Hooks from 'hooks'
 import * as Utils from 'utilities'
@@ -20,6 +21,7 @@ const CallDetails: React.FC<CallDetailsProps> = (props) => {
   const call = Hooks.server.phone.useGetById(params.id)
   const updateCall = Hooks.server.phone.useUpdateCall()
   const nav = Hooks.common.useNav()
+  const windowSize = Hooks.common.useWindowSize()
 
   if (call.isLoading) return <div>is loading</div>
 
@@ -38,6 +40,7 @@ const CallDetails: React.FC<CallDetailsProps> = (props) => {
         <p>On: {Utils.date.format(call.data?.created_at!)} you had a {call.data?.direction} call</p>
       </div>
       <div className='content'>
+        {windowSize.width <= Core.Keys.breakpoints.TABLET && <Button onClick={() => nav(-1)} className='back' $variant={Core.Keys.buttonVariants.OUTLINE}><Icons.Solid.Arrow size='35px' /></Button>}
         <div className='info'>
           <p>To: {call.data?.to}</p>
           <p>From: {call.data?.from}</p>
