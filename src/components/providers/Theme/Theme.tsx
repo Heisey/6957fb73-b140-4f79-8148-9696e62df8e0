@@ -14,7 +14,7 @@ interface ThemeContextProps {
 const ThemeContext = React.createContext<ThemeContextProps | undefined>(undefined)
 
 const ThemeProvider: React.FC<ThemeProps> = (props) => {
-  const [theme, setTheme] = React.useState(Core.config.theme.light)
+  const [theme, setTheme] = React.useState(Core.config.theme.dark)
 
   const toggleTheme = () => setTheme(prevTheme => (prevTheme === Core.config.theme.dark ? Core.config.theme.light : Core.config.theme.dark));
 
