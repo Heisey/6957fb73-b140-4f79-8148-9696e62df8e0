@@ -11,4 +11,8 @@ export const Mobile = styled.div`
     flex-direction: column;
     overflow: scroll;
   }
+
+  .header {
+    padding: 20px 20px;
+  }
 `

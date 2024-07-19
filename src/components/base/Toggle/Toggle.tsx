@@ -9,7 +9,7 @@ const Toggle: React.FC<ToggleProps> = (props) => {
   return (
     <Styles.Toggle>
       <label className='label'>
-        <input className='input' { ...props } type='checkbox' />
+        <input className='input' { ...props } readOnly type='checkbox' />
         <span className='slider'></span>
       </label>
     </Styles.Toggle>

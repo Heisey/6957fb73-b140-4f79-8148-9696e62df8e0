@@ -13,15 +13,17 @@ export interface MobileNavLinkProps extends Router.LinkProps {
 
 const MobileNavLink: React.FC<MobileNavLinkProps> = (props) => {
   const nav = Hooks.common.useNav()
+  const { active, cb, ...rest } = props
 
   const onClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
-    if (props.cb) props.cb()
+    if (cb) cb()
     nav(props.to)
   }
 
+
   return (
-    <Styles.Link { ...props } onClick={onClick} $active={props.active}>
+    <Styles.Link { ...rest } $active={active} onClick={onClick}>
       {props.children}
     </Styles.Link>
   )

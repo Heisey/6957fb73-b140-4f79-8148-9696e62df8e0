@@ -6,6 +6,8 @@ interface Props {
 }
 
 export const PhoneListItem = styled.li<Props>`
+  padding: 0;
+  display: block;
 
   .container {
     display: flex;
@@ -17,6 +19,7 @@ export const PhoneListItem = styled.li<Props>`
     z-index: 10;
     color: ${props => props.theme.text.primaryColor};
     text-decoration: none;
+    height: 100%;
 
     &:hover {
       &:after {
@@ -63,4 +66,6 @@ export const PhoneListItem = styled.li<Props>`
     left: 8px;
     transform: ${props => props.$incoming ? `rotate(150deg)` : 'rotate(330deg)'};
   }
+
+
 `

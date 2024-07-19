@@ -19,7 +19,7 @@ const Mobile: React.FC<MobileProps> = (props) => {
   return (
     <Styles.Mobile>
       <div className='content'>
-        <Header />
+        <Header className='header' />
         <Router.Routes>
           <Router.Route path={Core.Keys.paths.HOME} Component={PhoneList}>
             <Router.Route path={Core.Keys.paths.CALL_DETAILS} Component={PhoneList} />
