@@ -4,8 +4,9 @@ import * as Router from 'react-router-dom'
 
 import * as Core from 'core'
 import * as Hooks from 'hooks'
-import CallDetails from 'pages/Desktop/CallDetails'
-import Settings from 'pages/Desktop/Settings'
+import About from 'pages/About'
+import CallDetails from 'pages/CallDetails'
+import Settings from 'pages/Settings'
 import Header from 'components/custom/Header'
 import PhoneList from 'components/custom/PhoneList'
 import Sidebar from 'components/custom/Sidebar'
@@ -33,11 +34,12 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     <>
       <Sidebar ref={appCtx.navRef} />
       <div className='content'>
-        {location.pathname !== Core.Keys.paths.SETTINGS && renderList()}
+        {(location.pathname !== Core.Keys.paths.SETTINGS as string && location.pathname !== Core.Keys.paths.ABOUT as string) && renderList()}
         <Router.Routes>
           <Router.Route path={Core.Keys.paths.CALL_DETAILS} Component={CallDetails} />
           <Router.Route path={Core.Keys.paths.ARCHIVED_DETAILS} Component={CallDetails} />
           <Router.Route path={Core.Keys.paths.SETTINGS} Component={Settings} />
+          <Router.Route path={Core.Keys.paths.ABOUT} Component={About} />
         </Router.Routes>
       </div>
       {appCtx.tourPointsLoaded && <Tutorial />}

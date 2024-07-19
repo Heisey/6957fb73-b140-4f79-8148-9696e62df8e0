@@ -1,6 +1,8 @@
 
 import * as React from 'react'
 
+import * as Styles from './Svg.styles'
+
 export interface SvgProps extends Omit<React.SVGProps<SVGSVGElement>, 'height' | 'width'> {
   size?: string
 }
@@ -8,9 +10,9 @@ export interface SvgProps extends Omit<React.SVGProps<SVGSVGElement>, 'height' |
 const Svg: React.FC<SvgProps> = (props) => {
 
   return (
-    <svg { ...props } height={props.size} width='auto'>
+    <Styles.Svg { ...props } height={props.size} width='auto'>
       {props.children}
-    </svg>
+    </Styles.Svg>
   )
 }
 

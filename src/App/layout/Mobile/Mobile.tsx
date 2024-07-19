@@ -6,7 +6,7 @@ import * as Core from 'core'
 import Header from 'components/custom/Header'
 import PhoneList from 'components/custom/PhoneList'
 import MobileNav from 'components/custom/MobileNav'
-import Settings from 'pages/Desktop/Settings'
+import Settings from 'pages/Settings'
 
 import * as Styles from './Mobile.styles'
 
