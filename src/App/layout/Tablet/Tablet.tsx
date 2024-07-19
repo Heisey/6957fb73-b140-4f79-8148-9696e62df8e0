@@ -33,10 +33,14 @@ const Tablet: React.FC<TabletProps> = (props) => {
       {(location.pathname === Core.Keys.paths.HOME || location.pathname === Core.Keys.paths.ARCHIVED) && renderList()}
       <Router.Routes>
         <Router.Route path={Core.Keys.paths.HOME}>
-        <Router.Route path={Core.Keys.paths.CALL_DETAILS} Component={CallDetails} />
-        <Router.Route path={Core.Keys.paths.ARCHIVED_DETAILS} Component={CallDetails} />
-        <Router.Route path={Core.Keys.paths.SETTINGS} Component={Settings} />
+          <Router.Route path={Core.Keys.paths.CALL_DETAILS} Component={CallDetails} />
         </Router.Route>
+        
+        <Router.Route path={Core.Keys.paths.ARCHIVED}>
+          <Router.Route path={Core.Keys.paths.ARCHIVED_DETAILS} Component={CallDetails} />
+        </Router.Route>
+
+        <Router.Route path={Core.Keys.paths.SETTINGS} Component={Settings} />
       </Router.Routes>
     </>
   )
