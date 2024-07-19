@@ -10,6 +10,9 @@ export interface Context {
   homeRef: React.RefObject<HTMLDivElement>
   listRef: React.RefObject<HTMLDivElement>
   detailsRef: React.RefObject<HTMLDivElement>
+  settingsPageRef: React.RefObject<HTMLDivElement>
   settingsRef: React.RefObject<HTMLAnchorElement>
+  infoLinkRef: React.RefObject<HTMLAnchorElement>
+  infoRef: React.RefObject<HTMLDivElement>
 
 }

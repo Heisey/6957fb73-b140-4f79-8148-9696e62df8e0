@@ -1,8 +1,6 @@
 
 import * as Joyride from 'react-joyride'
 
-import * as Core from 'core'
-
 export const info = (): Joyride.Step[] => ([
   {
     target: '#home',
@@ -48,6 +46,16 @@ export const info = (): Joyride.Step[] => ([
   { 
     target: '#settings_menu',
     content: 'settings menu',
+    disableBeacon: true,
+    placement: 'center'
+  },{
+    target: '#info_link',
+    content: 'info link',
     disableBeacon: true
+  },{
+    target: '#info',
+    content: 'info page',
+    disableBeacon: true,
+    placement: 'center'
   }
 ])

@@ -25,7 +25,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>((props, ref) => {
       </div>
 
       <div>
-        <Styles.Link to={Core.Keys.paths.ABOUT} $active={location.pathname === Core.Keys.paths.ABOUT} className='link margin_bottom'><Icons.Solid.Info size='35px' /></Styles.Link>
+        <Styles.Link id='info_link' ref={appCtx.infoLinkRef} to={Core.Keys.paths.ABOUT} $active={location.pathname === Core.Keys.paths.ABOUT} className='link margin_bottom'><Icons.Solid.Info size='35px' /></Styles.Link>
         <Styles.Link id='settings' ref={appCtx.settingsRef} to={Core.Keys.paths.SETTINGS} $active={location.pathname === Core.Keys.paths.SETTINGS}><Icons.Solid.Settings className='link' size='35px' /></Styles.Link>
       </div>
     </Styles.Sidebar>

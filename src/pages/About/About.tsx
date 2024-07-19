@@ -1,6 +1,7 @@
 
 import * as React from 'react'
 
+import * as App from 'App'
 import * as Icons from 'assets/icons'
 import * as Hooks from 'hooks'
 
@@ -12,9 +13,10 @@ export interface AboutProps extends React.PropsWithChildren {
 
 const About: React.FC<AboutProps> = (props) => {
   const theme = Hooks.common.useTheme()
+  const appCtx = App.useAppCtx()
 
   return (
-    <Styles.About>
+    <Styles.About ref={appCtx.infoRef} id='info'>
       <h1 className='title space'>Thank you for Visiting</h1>
       <div>
         <p className='message space'>This app was created as a interview assignment for Speer Technologies. I really enjoyed working on the assignment, and I hope you enjoy my work.</p>
