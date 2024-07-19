@@ -10,6 +10,7 @@ import Settings from 'pages/Settings'
 import Header from 'components/custom/Header'
 import PhoneList from 'components/custom/PhoneList'
 import Sidebar from 'components/custom/Sidebar'
+import Tutorial from 'components/custom/Tutorial'
 
 import * as Ctx from '../../context'
 
@@ -30,7 +31,7 @@ const Tablet: React.FC<TabletProps> = (props) => {
 
   return (
     <>
-      <Sidebar />
+      <Sidebar ref={appCtx.navRef} />
       {(location.pathname === Core.Keys.paths.HOME || location.pathname === Core.Keys.paths.ARCHIVED) && renderList()}
       <Router.Routes>
         <Router.Route path={Core.Keys.paths.HOME}>
@@ -44,6 +45,7 @@ const Tablet: React.FC<TabletProps> = (props) => {
         <Router.Route path={Core.Keys.paths.ABOUT} Component={About} />
         <Router.Route path={Core.Keys.paths.SETTINGS} Component={Settings} />
       </Router.Routes>
+      {appCtx.tourPointsLoaded && <Tutorial />}
     </>
   )
 }
