@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as Styled from 'styled-components'
 
 import * as Core from 'core'
+import * as Hooks from 'hooks'
 
 export interface ThemeProps extends React.PropsWithChildren {}
 
@@ -14,9 +15,14 @@ interface ThemeContextProps {
 const ThemeContext = React.createContext<ThemeContextProps | undefined>(undefined)
 
 const ThemeProvider: React.FC<ThemeProps> = (props) => {
-  const [theme, setTheme] = React.useState(Core.config.theme.dark)
+  const cachedState = Hooks.common.useCachedState()
+  const [theme, setTheme] = React.useState(Core.config.theme[cachedState.state.theme])
 
-  const toggleTheme = () => setTheme(prevTheme => (prevTheme === Core.config.theme.dark ? Core.config.theme.light : Core.config.theme.dark));
+  const toggleTheme = () => {
+    const update = theme.name === Core.config.theme.dark.name ? Core.config.theme.light : Core.config.theme.dark
+    cachedState.setState({ ...cachedState.state, theme: update.name as keyof typeof Core.config.theme })
+    setTheme(update)
+  }
 
   return (
     <ThemeContext.Provider value={{ current: theme, toggleTheme }}>

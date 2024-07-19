@@ -7,10 +7,10 @@ import * as Utils from 'utilities'
 import * as CtxApp from './'
 
 const Provider: React.FC<React.PropsWithChildren> = (props) => {
-
+  const cachedState = Hooks.common.useCachedState()
   const location = Hooks.common.useLocation()
   const [showArchived, showArchivedHandler] = React.useState(false)
-  const [showTutorial, toggleShowTutorial] = Hooks.common.useToggle(false)
+  const [showTutorial, toggleShowTutorial] = Hooks.common.useToggle(!cachedState.state.ranTutorial)
   const [tourPointsLoaded, tourPointsLoadedHandler] = React.useState(false)
   const homeRef = React.useRef<HTMLDivElement>(null);
   const navRef = React.useRef<HTMLDivElement>(null);

@@ -9,4 +9,6 @@ export type { CallDirection } from './CallDirection'
 
 export type { CallStatus } from './CallStatus'
 
+export type { StoredState } from './StoredState'
+
 export type { Theme } from './Theme'
