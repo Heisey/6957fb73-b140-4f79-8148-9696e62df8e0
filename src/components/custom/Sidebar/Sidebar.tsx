@@ -10,16 +10,14 @@ import * as Utils from 'utilities'
 import * as Styles from './Sidebar.styles'
 
 export interface SidebarProps extends React.PropsWithChildren {
-
 }
 
-const Sidebar: React.FC<SidebarProps> = (props) => {
-
+const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>((props, ref) => {
   const appCtx = App.useAppCtx()
   const location = Hooks.common.useLocation()
 
   return (
-    <Styles.Sidebar>
+    <Styles.Sidebar id='nav' ref={ref}>
       <div className='links'>
         <Styles.Link to={Core.Keys.paths.HOME} $active={Utils.nav.isDetailsOrChildPath.test(location.pathname) || location.pathname === Core.Keys.paths.HOME}><Icons.Solid.Phone className='link margin_bottom' size='35px' /></Styles.Link>
 
@@ -27,10 +25,11 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
       </div>
 
       <div>
-        <Styles.Link to={Core.Keys.paths.SETTINGS} $active={location.pathname === Core.Keys.paths.SETTINGS}><Icons.Solid.Settings className='link' size='35px' /></Styles.Link>
+        <Styles.Info onClick={appCtx.toggleShowTutorial} className='margin_bottom' $variant={Core.Keys.buttonVariants.GHOST}><Icons.Solid.Info size='40px' /></Styles.Info>
+        <Styles.Link id='settings' ref={appCtx.settingsRef} to={Core.Keys.paths.SETTINGS} $active={location.pathname === Core.Keys.paths.SETTINGS}><Icons.Solid.Settings className='link' size='35px' /></Styles.Link>
       </div>
     </Styles.Sidebar>
   )
-}
+})
 
 export default Sidebar

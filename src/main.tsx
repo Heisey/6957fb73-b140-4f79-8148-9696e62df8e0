@@ -2,6 +2,8 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
 import * as ReactRouter from 'react-router-dom'
 
+// import "react-joyride/";
+
 import App from 'App'
 import QueryProvider from 'components/providers/Query'
 import ThemeProvider from 'components/providers/Theme'

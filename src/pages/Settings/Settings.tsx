@@ -17,7 +17,7 @@ const Settings: React.FC<SettingsProps> = (props) => {
   return (
     <Styles.Settings>
       <h1 className='title'>Update your user settings</h1>
-      <div className='inputs'>
+      <div id='settings_menu' className='inputs'>
         <div className='input'>
           <p>
             Use dark mode

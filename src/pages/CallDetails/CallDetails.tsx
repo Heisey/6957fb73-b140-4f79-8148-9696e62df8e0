@@ -29,8 +29,8 @@ const CallDetails: React.FC<CallDetailsProps> = (props) => {
   }
 
   return (
-    <Styles.CallDetails>
-      <div className='header'>
+    <Styles.CallDetails id='details'>
+      <div ref={appCtx.detailsRef} className='header'>
         {appCtx.showArchived && <p>Archived</p>}
         <p>{call.data?.direction}</p>
       </div>

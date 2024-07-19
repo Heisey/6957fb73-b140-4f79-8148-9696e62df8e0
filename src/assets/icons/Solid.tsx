@@ -27,6 +27,12 @@ export const Arrow: React.FC<SvgProps> = (props) => (
   </Svg>
 )
 
+export const Info: React.FC<SvgProps> = (props) => (
+  <Svg { ...props } viewBox='0 0 512 512'>
+    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+  </Svg>
+)
+
 export const MenuDot: React.FC<SvgProps> = (props) => (
   <Svg { ...props } viewBox='0 0 128 512'>
     <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>

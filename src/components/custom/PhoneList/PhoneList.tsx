@@ -16,7 +16,7 @@ export interface PhoneListProps extends React.PropsWithChildren {
 const AllFilter = 'ALL'
 type ListFilter = Core.I.CallDirection | typeof AllFilter
 
-const PhoneList: React.FC<PhoneListProps> = (props) => {
+const PhoneList = React.forwardRef<HTMLDivElement, PhoneListProps>((props, ref) => {
   const appCtx = App.useAppCtx()
   const callHistory = Hooks.server.phone.useGetAll(!appCtx.showArchived)
   const archiveHistory = Hooks.server.phone.useGetArchived(appCtx.showArchived)
@@ -68,7 +68,7 @@ const PhoneList: React.FC<PhoneListProps> = (props) => {
   }
 
   return (
-    <Styles.PhoneList>
+    <Styles.PhoneList id='list' ref={ref}>
       <div className='buttons'>
         <div className='buttons__lists'>
           <Styles.FilterButton $active={showFiltered === AllFilter} onClick={() => showFilteredHandler(AllFilter)}>All</Styles.FilterButton>
@@ -80,6 +80,6 @@ const PhoneList: React.FC<PhoneListProps> = (props) => {
       {renderList()}
     </Styles.PhoneList>
   )
-}
+})
 
 export default PhoneList
