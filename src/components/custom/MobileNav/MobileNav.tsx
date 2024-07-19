@@ -23,10 +23,10 @@ const MobileNav: React.FC<MobileNavProps> = (props) => {
       <div className='menu'>
         <MobileNavLink active={Utils.nav.isDetailsOrChildPath.test(location.pathname) || location.pathname === Core.Keys.paths.HOME} to={Core.Keys.paths.HOME} className='mobile_link link'><Icons.Solid.Phone size='35px' /></MobileNavLink>
         <MobileNavLink active={Utils.nav.isArchivedOrChildPath.test(location.pathname)} to={Core.Keys.paths.ARCHIVED} className='mobile_link link'><Icons.Solid.Archive size='35px' /></MobileNavLink>
-        <Styles.SubMenuButton $active={showSubMenu} className='sub_menu__button' onClick={toggleShowSubMenu}><Icons.Solid.PhoneMissed size='35px' /></Styles.SubMenuButton>
+        <Styles.SubMenuButton $active={showSubMenu} className='sub_menu__button' onClick={toggleShowSubMenu}><Icons.Solid.MenuDotHorizontal size='35px' /></Styles.SubMenuButton>
       </div>
       <div className='sub_menu'>
-        <MobileNavLink cb={toggleShowSubMenu} active={location.pathname === '/'} to={Core.Keys.paths.HOME} className='sub_menu__link link'><Icons.Solid.Phone size='35px' /></MobileNavLink>
+        <MobileNavLink cb={toggleShowSubMenu} active={location.pathname === Core.Keys.paths.ABOUT} to={Core.Keys.paths.ABOUT} className='sub_menu__link link'><Icons.Solid.Info size='35px' /></MobileNavLink>
         <MobileNavLink cb={toggleShowSubMenu} active={location.pathname === Core.Keys.paths.SETTINGS} to={Core.Keys.paths.SETTINGS} className='sub_menu__link link'><Icons.Solid.Settings size='35px' /></MobileNavLink>
       </div>
     </Styles.MobileNav>

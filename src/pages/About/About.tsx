@@ -36,12 +36,12 @@ const About: React.FC<AboutProps> = (props) => {
           <li className='list__item'><Icons.Solid.Star fill='#edd713' className='list__icon' size='25px' /><span className='list__text'>A Guided Tour of the app</span></li>
         </ul>
 
-        <p className='message'>What I ran out of time for:</p>
+        {/* <p className='message'>What I ran out of time for:</p>
         <ul className='list spacer'>
-          <li className='list__item'><Icons.Solid.Sad fill={theme.current.button.variants.danger.fg} className='list__icon' size='25px' /><span className='list__text'>Light and Dark themes have been added, with a setting to toggle between</span></li>
+          <li className='list__item'><Icons.Solid.Sad fill={theme.current.button.variants.danger.fg} className='list__icon' size='25px' /><span className='list__text'></span></li>
           <li className='list__item'><Icons.Solid.Sad fill={theme.current.button.variants.danger.fg} className='list__icon' size='25px' /><span className='list__text'>Cached storage using local storage to save settings in case of refresh</span></li>
           <li className='list__item'><Icons.Solid.Sad fill={theme.current.button.variants.danger.fg} className='list__icon' size='25px' /><span className='list__text'>A Guided Tour of the app</span></li>
-        </ul>
+        </ul> */}
 
         <p className='message'>Here are also some of my links for you, you can find all my latest work here</p>
         <div className='links'>

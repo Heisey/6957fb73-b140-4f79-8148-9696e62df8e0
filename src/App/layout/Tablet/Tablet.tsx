@@ -4,6 +4,7 @@ import * as Router from 'react-router-dom'
 
 import * as Core from 'core'
 import * as Hooks from 'hooks'
+import About from 'pages/About'
 import CallDetails from 'pages/CallDetails'
 import Settings from 'pages/Settings'
 import Header from 'components/custom/Header'
@@ -40,6 +41,7 @@ const Tablet: React.FC<TabletProps> = (props) => {
           <Router.Route path={Core.Keys.paths.ARCHIVED_DETAILS} Component={CallDetails} />
         </Router.Route>
 
+        <Router.Route path={Core.Keys.paths.ABOUT} Component={About} />
         <Router.Route path={Core.Keys.paths.SETTINGS} Component={Settings} />
       </Router.Routes>
     </>

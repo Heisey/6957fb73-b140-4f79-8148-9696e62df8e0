@@ -13,6 +13,7 @@ export const MobileNav = styled.nav<MobileProps>`
   background-color: ${props => props.theme.background.secondaryColor};
   border-top: 1px solid ${props => props.theme.border.color};
   position: relative;
+  width: 100%;
 
 
   .menu {
@@ -22,6 +23,7 @@ export const MobileNav = styled.nav<MobileProps>`
     z-index: 50;
     position: relative;
     height: 100%;
+    width: 100%;
     background-color: ${props => props.theme.background.secondaryColor};
 
     & > :not(:last-child) {

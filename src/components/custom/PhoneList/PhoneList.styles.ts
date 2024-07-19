@@ -9,6 +9,11 @@ export const PhoneList = styled.div`
   width: 400px;
   overflow-y: auto;
 
+
+  @media (max-width: ${Core.Keys.breakpoints.MOBILE}px) {
+    width: 100%;
+  }
+
   ul {
     overflow: scroll;
     border-top: 1px solid ${props => props.theme.border.color};
