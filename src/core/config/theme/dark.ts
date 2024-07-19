@@ -26,6 +26,12 @@ export const dark: I.Theme = {
         bg: '#343b3a',
         hoverBg: '#b0170c',
         hoverFg: '#343b3a'
+      },
+      [Keys.buttonThemes.DISABLED]: {
+        fg: '#7d7d7d',  
+        bg: '#343b3a',  
+        hoverBg: '#343b3a',
+        hoverFg: '#7d7d7d' 
       }
     }
   },

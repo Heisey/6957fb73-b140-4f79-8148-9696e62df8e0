@@ -17,6 +17,7 @@ const Settings: React.FC<SettingsProps> = (props) => {
   const appCtx = App.useAppCtx()
   const theme = Hooks.common.useTheme()
   const navigate = Hooks.common.useNav()
+  const windowSize = Hooks.common.useWindowSize()
 
   const restartTutorial = () => {
     navigate(Core.Keys.paths.HOME)
@@ -26,9 +27,9 @@ const Settings: React.FC<SettingsProps> = (props) => {
 
   return (
     <Styles.Settings>
-      <h1 className='title'>Update your user settings</h1>
+      <h1 className='title spacer'>Update your user settings</h1>
       <div ref={appCtx.settingsPageRef} id='settings_menu' className='inputs'>
-        <div className='input'>
+        <div className='input spacer'>
           <p>
             Use dark mode
           </p>
@@ -36,8 +37,9 @@ const Settings: React.FC<SettingsProps> = (props) => {
         </div>
         <div className='input'>
           <p>Use Guided Tutorial</p>
-          <Button onClick={restartTutorial}>Restart</Button>
+          <Button $theme={windowSize.width < Core.Keys.breakpoints.MOBILE ? Core.Keys.buttonThemes.DISABLED : Core.Keys.buttonThemes.PRIMARY} disabled={windowSize.width < Core.Keys.breakpoints.MOBILE} onClick={restartTutorial}>Restart</Button>
         </div>
+        {windowSize.width < Core.Keys.breakpoints.MOBILE && <p>Tutorial is not available in mobile mode</p>}
       </div>
     </Styles.Settings>
   )

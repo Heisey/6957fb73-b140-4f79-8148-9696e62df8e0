@@ -5,7 +5,6 @@ import Page from 'components/templates/Page'
 export const Settings = styled(Page)`
   .title {
     font-size: 40px;
-    margin-bottom: 20px;
   }
 
   .input {
@@ -17,5 +16,10 @@ export const Settings = styled(Page)`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 0%.5;
+  }
+
+  .spacer {
+    margin-bottom: 3rem;
   }
 `

@@ -26,6 +26,12 @@ export const light: I.Theme = {
         bg: '#b0170c',
         hoverBg: '#b0170c',
         hoverFg: 'white'
+      },
+      [Keys.buttonThemes.DISABLED]: {
+        fg: '#7d7d7d',  
+        bg: '#343b3a',  
+        hoverBg: '#343b3a',
+        hoverFg: '#7d7d7d' 
       }
     }
   },
