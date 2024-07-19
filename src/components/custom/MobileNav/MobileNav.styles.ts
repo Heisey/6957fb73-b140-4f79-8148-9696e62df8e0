@@ -1,6 +1,7 @@
 
 import styled from 'styled-components'
 
+import * as Core from 'core'
 import Button from 'components/base/Button'
 
 interface MobileProps {
@@ -63,13 +64,18 @@ interface SubMenuButtonProps {
   $active: boolean
 }
 
+const fill = (args: SubMenuButtonProps, theme: Core.I.Theme) => {
+  if (theme.name === 'dark') return args.$active ? theme.button.variants.primary.fg : theme.text.primaryColor
+  return args.$active ? theme.button.variants.primary.bg : theme.text.primaryColor
+}
+
 export const SubMenuButton = styled(Button)<SubMenuButtonProps>`
     height: 100%;
-    fill: ${props => props.$active ? props.theme.button.variants.primary.fg : props.theme.text.primaryColor};
+    background-color: transparent;
+    fill: ${props => fill(props, props.theme)};
 
     &:hover {
       background-color: transparent;
-      fill: ${props => props.$active ? props.theme.button.variants.primary.fg : props.theme.text.primaryColor};
       
       & > * {
         transform: scale(1.2);

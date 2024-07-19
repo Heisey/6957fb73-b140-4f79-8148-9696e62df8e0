@@ -25,11 +25,10 @@ const Tutorial: React.FC<TutorialProps> = (props) => {
     if (args.step.target === '#details' && args.index === 3) navigate(Core.Keys.paths.SETTINGS)
 
   }
-
-  console.log('showtut, ', appCtx.showTutorial)
+  
   return (
     <Joyride.default 
-      run={appCtx.showTutorial} 
+      run={false} 
       steps={Core.config.tutorials.info()} 
       locale={{ next: 'Next', close: onLastSlide ? 'Close' : 'Next'}} 
       callback={callback} 

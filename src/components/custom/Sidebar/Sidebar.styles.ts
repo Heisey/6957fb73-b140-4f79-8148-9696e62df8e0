@@ -6,11 +6,13 @@ import Button from 'components/base/Button'
 
 export const Sidebar = styled.div`
   background-color: ${props => props.theme.background.secondaryColor};
-  padding: 20px;
+
   height: 100vh;
   border-right: 1px solid ${props => props.theme.border.color};
   display: flex;
   flex-direction: column;
+  width: 120px;
+  padding: 20px;
 
   .links {
     flex-grow: 1;
@@ -33,7 +35,7 @@ interface LinkProps {
 export const Info = styled(Button)<LinkProps>`
   fill: ${props => props.$active ? props.theme.nav.activeTextColor : props.theme.nav.textColor};
   transition: fill 0.3s ease-in;
-  cursor: ${props => props.$active ? 'default' : 'pointer'}
+  cursor: ${props => props.$active ? 'default' : 'pointer'};
   
 `
 
@@ -42,5 +44,11 @@ export const Link = styled(Router.Link).withConfig({
 })<LinkProps>`
   fill: ${props => props.$active ? props.theme.nav.activeTextColor : props.theme.nav.textColor};
   transition: fill 0.3s ease-in;
-  cursor: ${props => props.$active ? 'default' : 'pointer'}
+  cursor: ${props => props.$active ? 'default' : 'pointer'};
+
+  :hover {
+    & > * {
+      transform: scale(1.1);
+    }
+  }
 `

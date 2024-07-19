@@ -23,7 +23,7 @@ export const PhoneListItem = styled.li<Props>`
 
     &:hover {
       &:after {
-        background-color: #ffffff20;
+        background-color: ${props => props.theme.name === 'dark' ? '#ffffff20' : '#00000020'};
         content: '';
         position: absolute;
         top: 0;
